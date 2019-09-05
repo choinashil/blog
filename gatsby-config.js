@@ -1,9 +1,10 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: '문어지지말고 개발일기',
+    author: '나시루'
+  },
+  plugins: [
+    'gatsby-plugin-sass',
+    'gatsby-plugin-styled-components'
+  ]
 }

@@ -1,21 +1,36 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 const Header = () => {
+    const data = useStaticQuery(graphql`
+        query {
+            site {
+                siteMetadata {
+                    title
+                    author
+                }
+            }
+        }
+    `)
+
     return (
-        <div>
-            <Link to='/'><h1>문어지지말고 개발일기</h1></Link>
+        <header>
+            <Link to='/'>
+                <h1>{data.site.siteMetadata.title}</h1>
+                <p>by {data.site.siteMetadata.author}</p>
+            </Link>
+            
             <nav>
                 <ul>
                     <li>
-                        <Link to='/about'>About</Link>
+                        <Link to='/about'>about</Link>
                     </li>
                     <li>
                         <Link to='/blog'>Blog</Link>
                     </li>
                 </ul>
             </nav>
-        </div>
+        </header>
     );
 }
 
