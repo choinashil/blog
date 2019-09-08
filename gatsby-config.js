@@ -4,6 +4,7 @@ module.exports = {
     author: '나시루'
   },
   plugins: [
+    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components'
   ]
