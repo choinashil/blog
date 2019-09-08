@@ -5,6 +5,20 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'programming',
+        path: `${__dirname}/content/programming`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'activity',
+        path: `${__dirname}/content/activity`
+      }
+    },
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components'
   ]
