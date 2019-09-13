@@ -19,6 +19,8 @@ module.exports = {
         path: `${__dirname}/content/activity`
       }
     },
+    'gatsby-transformer-remark',
+    'gatsby-remark-source-name',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components'
   ]
