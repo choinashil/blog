@@ -9,7 +9,7 @@ export const query = graphql`
       frontmatter: {
         draft: {eq: false}}}, 
         sort: {fields: frontmatter___date, order: DESC}
-    ){            
+    ) {            
       edges {
         node {
           frontmatter {
@@ -26,7 +26,7 @@ export const query = graphql`
   }
 `
 
-const Blog = props => {
+const Category = props => {
   const contentList = [];
   const order = {};
   let index = 0;
@@ -37,8 +37,10 @@ const Blog = props => {
     
     if(!order[subject]) {
       order[subject] = { index };
+      const subjectSlug = edge.node.frontmatter.subject.toLowerCase().replace(/ /g, '-');
       contentList.push({
         subject,
+        subjectSlug,
         content: [] 
       });
       index++;
@@ -49,14 +51,17 @@ const Blog = props => {
     }
   });
 
+
   return (
     <Layout>
-      {/* <h1>{location.state.subject}</h1> */}
+      <h1>{props.pageContext.category}</h1>
       
       {contentList.map(contentInfo => {
         return (
           <div key={contentInfo.subject}>
-            <a href=''><h3>{contentInfo.subject}</h3></a>
+            <a href={`/${props.pageContext.category}/${contentInfo.subjectSlug}`}>
+              <h3>{contentInfo.subject}</h3>
+            </a>
             <ul>
               {contentInfo.content.map((content, index) => {
                 return (
@@ -76,4 +81,4 @@ const Blog = props => {
   );
 }
 
-export default Blog
+export default Category

@@ -23,10 +23,19 @@ const Header = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to='/about'>about</Link>
+                        <Link to='/about'>me</Link>
                     </li>
                     <li>
-                        <Link to='/blog'>Blog</Link>
+                        <Link to='/about'>note</Link>
+                    </li>
+                    <li>
+                        <Link to='/programming'>programming</Link>
+                    </li>
+                    <li>
+                        <Link to='/activity'>activity</Link>
+                    </li>
+                    <li>
+                        <Link to='/about'>devlog</Link>
                     </li>
                 </ul>
             </nav>

@@ -8,6 +8,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMM D, Y")
+        subject
       }
       html
       timeToRead
@@ -16,9 +17,18 @@ export const query = graphql`
 `
 
 const Post = props => {
-  console.log('props', props)
+  const subjectSlug = props.data.markdownRemark.frontmatter.subject.toLowerCase().replace(/ /g, '-');
+
   return (
     <Layout>
+      <div>
+        <a href={`/${props.pageContext.category}`}>
+         <p>{props.pageContext.category}</p>
+        </a>
+        <a href={`/${props.pageContext.category}/${subjectSlug}`}>
+          <p>{props.data.markdownRemark.frontmatter.subject}</p>
+        </a>
+      </div>
       <h1>{props.data.markdownRemark.frontmatter.title}</h1>
       <p>{props.data.markdownRemark.frontmatter.date}</p>
       <p>{props.data.markdownRemark.timeToRead} min read</p>

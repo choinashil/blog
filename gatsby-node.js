@@ -22,9 +22,11 @@ module.exports.onCreateNode = ({ node, actions }) => {
 }
 
 module.exports.createPages = async({ graphql, actions }) => {
-  const { createPage } = actions
-  const postTemplate = path.resolve('./src/templates/post.js')
-  const blogTemplate = path.resolve('./src/templates/blog.js')
+  const { createPage } = actions;
+  const categoryTemplate = path.resolve('./src/templates/category.js');
+  const subjectTemplate = path.resolve('./src/templates/subject.js');
+  const postTemplate = path.resolve('./src/templates/post.js');
+  const subjectList = {};
 
   const res = await graphql(`
     query {
@@ -39,30 +41,53 @@ module.exports.createPages = async({ graphql, actions }) => {
         edges {
           node {
             fields {
+              category
               slug
+            }
+            frontmatter {
+              subject
             }
           }
         }
       }
     }
   `)
+
   res.data.category.edges.forEach(edge => {
     createPage({
-      component: blogTemplate,
+      component: categoryTemplate,
       path: `/${edge.node.sourceInstanceName}`,
       context: {
         category: edge.node.sourceInstanceName
       }
     })
+  });
+
+  res.data.slug.edges.forEach(edge => {
+    const { fields, frontmatter } = edge.node;
+    if (!subjectList[frontmatter.subject]) {
+      const subjectSlug = frontmatter.subject.toLowerCase().replace(/ /g, '-');
+      createPage({
+        component: subjectTemplate,
+        path: `/${fields.category}/${subjectSlug}`,
+        context: {
+          category: fields.category,
+          subject: frontmatter.subject
+        }
+      })
+      subjectList[frontmatter.subject] = frontmatter.subject;
+    }
   })
 
   res.data.slug.edges.forEach(edge => {
+    const { fields, frontmatter } = edge.node;
     createPage({
       component: postTemplate,
-      path: `/post/${edge.node.fields.slug}`,
+      path: `/post/${fields.slug}`,
       context: {
-        slug: edge.node.fields.slug
+        category: fields.category,
+        slug: fields.slug
       }
     })
-  })
+  });
 }
