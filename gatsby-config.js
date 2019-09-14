@@ -20,7 +20,6 @@ module.exports = {
       }
     },
     'gatsby-transformer-remark',
-    'gatsby-remark-source-name',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components'
   ]
