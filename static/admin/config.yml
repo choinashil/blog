@@ -15,7 +15,7 @@ collections:
     editor:
      preview: true
     fields:
-      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Subject", name: "subject", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Draft", name: "draft", widget: "boolean", default: true }
@@ -30,7 +30,7 @@ collections:
     editor:
      preview: true
     fields:
-      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Subject", name: "subject", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Draft", name: "draft", widget: "boolean", default: true }
