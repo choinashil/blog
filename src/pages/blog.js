@@ -6,7 +6,7 @@ const Blog = ({ location }) => {
   const data = useStaticQuery(graphql`
   query {
     allMarkdownRemark(
-      filter: {fields: {category: {eq: "programming"}}, 
+      filter: {fields: {sourceName: {eq: "programming"}}, 
       frontmatter: {
         draft: {eq: false}}}, 
         sort: {fields: frontmatter___date, order: DESC}) {            

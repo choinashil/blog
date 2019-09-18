@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
 export const query = graphql`
-  query ($category: String!) {
+  query ($sourceName: String!) {
     allMarkdownRemark(
-      filter: {fields: {category: {eq: $category}}, 
+      filter: {fields: {sourceName: {eq: $sourceName}}, 
       frontmatter: {
         draft: {eq: false}}}, 
         sort: {fields: frontmatter___date, order: DESC}
@@ -54,12 +54,12 @@ const Category = props => {
 
   return (
     <Layout>
-      <h1>{props.pageContext.category}</h1>
+      <h1>{props.pageContext.sourceName}</h1>
       
       {contentList.map(contentInfo => {
         return (
           <div key={contentInfo.subject}>
-            <a href={`/${props.pageContext.category}/${contentInfo.subjectSlug}`}>
+            <a href={`/${props.pageContext.sourceName}/${contentInfo.subjectSlug}`}>
               <h3>{contentInfo.subject}</h3>
             </a>
             <ul>

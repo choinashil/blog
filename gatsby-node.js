@@ -1,23 +1,16 @@
-const path = require('path')
+const path = require('path');
 
 module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
   
   if (node.internal.type === 'MarkdownRemark') {
     const slug = path.basename(node.fileAbsolutePath, '.md');
-    const dirName = path.dirname(node.fileAbsolutePath);
-    const category = path.basename(dirName);
 
     createNodeField({
       node,
       name: 'slug',
       value: slug
-    })
-    createNodeField({
-      node,
-      name: 'category',
-      value: category
-    })
+    });
   }
 }
 
@@ -30,7 +23,7 @@ module.exports.createPages = async({ graphql, actions }) => {
 
   const res = await graphql(`
     query {
-      category: allDirectory {
+      sourceName: allDirectory {
         edges {
           node {
             sourceInstanceName
@@ -41,7 +34,7 @@ module.exports.createPages = async({ graphql, actions }) => {
         edges {
           node {
             fields {
-              category
+              sourceName
               slug
             }
             frontmatter {
@@ -53,12 +46,12 @@ module.exports.createPages = async({ graphql, actions }) => {
     }
   `)
 
-  res.data.category.edges.forEach(edge => {
+  res.data.sourceName.edges.forEach(edge => {
     createPage({
       component: categoryTemplate,
       path: `/${edge.node.sourceInstanceName}`,
       context: {
-        category: edge.node.sourceInstanceName
+        sourceName: edge.node.sourceInstanceName
       }
     })
   });
@@ -69,24 +62,24 @@ module.exports.createPages = async({ graphql, actions }) => {
       const subjectSlug = frontmatter.subject.toLowerCase().replace(/ /g, '-');
       createPage({
         component: subjectTemplate,
-        path: `/${fields.category}/${subjectSlug}`,
+        path: `/${fields.sourceName}/${subjectSlug}`,
         context: {
-          category: fields.category,
+          sourceName: fields.sourceName,
           subject: frontmatter.subject
         }
       })
       subjectList[frontmatter.subject] = frontmatter.subject;
     }
-  })
+  });
 
   res.data.slug.edges.forEach(edge => {
-    const { fields, frontmatter } = edge.node;
+    const { sourceName, slug } = edge.node.fields;
     createPage({
       component: postTemplate,
-      path: `/post/${fields.slug}`,
+      path: `/post/${slug}`,
       context: {
-        category: fields.category,
-        slug: fields.slug
+        sourceName: sourceName,
+        slug: slug
       }
     })
   });

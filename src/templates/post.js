@@ -22,10 +22,10 @@ const Post = props => {
   return (
     <Layout>
       <div>
-        <a href={`/${props.pageContext.category}`}>
-         <p>{props.pageContext.category}</p>
+        <a href={`/${props.pageContext.sourceName}`}>
+         <p>{props.pageContext.sourceName}</p>
         </a>
-        <a href={`/${props.pageContext.category}/${subjectSlug}`}>
+        <a href={`/${props.pageContext.sourceName}/${subjectSlug}`}>
           <p>{props.data.markdownRemark.frontmatter.subject}</p>
         </a>
       </div>
