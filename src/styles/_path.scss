@@ -1,0 +1,40 @@
+.Path {
+  margin-top: 1.5rem;
+  h2 {
+    // font-family: 'Inconsolata', monospace;
+    font-family: 'NanumSquare', sans-serif;
+    // background-color: coral;
+    padding: .25rem .75rem .25rem 1rem;
+    display: inline;
+    position: relative;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  a:nth-child(1) h2 {
+    background-color: $main-green;
+    &::after {
+      border-color: transparent transparent transparent $main-green;
+    }
+  }
+  a:nth-child(2) h2 {
+    padding: .25rem .75rem .25rem 1.5rem;
+    background-color: $main-yellow;
+    &::after {
+      border-color: transparent transparent transparent $main-yellow;
+
+    }
+  }
+  h2::after {
+    content: "";
+    // border-color: transparent coral;
+    border-style: solid;
+    border-width: 14px 0px 14px 14px;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    right: -14px;
+    top: 0;
+    // transform: translate(12px);
+    z-index: 1;
+  }
+}
