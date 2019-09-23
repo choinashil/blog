@@ -1,0 +1,19 @@
+.Post {
+  font-family: 'NanumSquare', sans-serif;
+
+  &__info {
+    border-bottom: 1px solid $main-green;
+  
+    &__title {
+      font-size: 2rem;
+      line-height: 2.5rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    &__description {
+      margin-top: 0;
+    }
+  }
+}
+

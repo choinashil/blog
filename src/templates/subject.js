@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import Path from '../components/path'
 
 export const query = graphql`
   query ($subject: String!) {
@@ -31,31 +32,32 @@ export const query = graphql`
 `
 
 const Subject = props => {
-  const subjectSlug = props.pageContext.subject.toLowerCase().replace(/ /g, '-');
   return (
     <Layout>
-      <div>
-        <a href={`/${props.pageContext.sourceName}`}>
-          <p>{props.pageContext.sourceName}</p>
-        </a>
-        <a href={`/${props.pageContext.sourceName}/${subjectSlug}`}>
-          <p>{props.pageContext.subject}</p>
-        </a>
-      </div>
-      <ul>
-      {
-        props.data.allMarkdownRemark.edges.map((edge, index) => {
-          return (
-            <a href={`/post/${edge.node.fields.slug}`} key={index}>
-              <li>
-                <p>{edge.node.frontmatter.title}</p>
-                <p>{edge.node.frontmatter.date}</p>
-              </li>
-            </a>
-          )
-        })
-      }
-      </ul>
+      <section>
+        <Path 
+          category={props.pageContext.sourceName}
+          subject={props.pageContext.subject}
+        />
+        <div className="Container">
+          <ul>
+          {
+            props.data.allMarkdownRemark.edges.map((edge, index) => {
+              return (
+                <a href={`/post/${edge.node.fields.slug}`} key={index}>
+                  <li className="PostList">
+                    <div>
+                      <span className="PostList__title">{edge.node.frontmatter.title}</span>
+                      <span className="PostList__date">{edge.node.frontmatter.date}</span>
+                    </div>
+                  </li>
+                </a>
+              )
+            })
+          }
+          </ul>
+        </div>
+      </section>
     </Layout>
   );
 }

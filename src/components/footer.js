@@ -1,5 +1,10 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import styled from 'styled-components'
+
+const FooterContainer = styled.div`
+    background-color: rgb(166, 244, 166);
+`
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
@@ -13,9 +18,9 @@ const Footer = () => {
     `)
 
     return (
-        <footer>
+        <FooterContainer>
             <p>Created by {data.site.siteMetadata.author}, © 2019</p>
-        </footer>
+        </FooterContainer>
     );
 }
 

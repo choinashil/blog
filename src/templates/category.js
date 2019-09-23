@@ -1,6 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
+
 import Layout from '../components/layout'
+import Path from '../components/path'
+import '../styles/index.scss'
+
+const SubjectContainer = styled.div`
+  margin-bottom: 2.5rem;
+`
 
 export const query = graphql`
   query ($sourceName: String!) {
@@ -51,32 +59,37 @@ const Category = props => {
     }
   });
 
-
   return (
     <Layout>
-      <h1>{props.pageContext.sourceName}</h1>
-      
-      {contentList.map(contentInfo => {
-        return (
-          <div key={contentInfo.subject}>
-            <a href={`/${props.pageContext.sourceName}/${contentInfo.subjectSlug}`}>
-              <h3>{contentInfo.subject}</h3>
-            </a>
-            <ul>
-              {contentInfo.content.map((content, index) => {
-                return (
-                  <a href={`/post/${content.slug}`} key={index}>
-                    <li>
-                      <p>{content.title}</p>
-                      <p>{content.date}</p>
-                    </li>
-                  </a>
-                );
-              })}
-            </ul>
-          </div>
-        );
-      })}
+      <section class='Category'>
+        <Path category={props.pageContext.sourceName} />
+        
+        <div class='Container'>
+          {contentList.map(contentInfo => {
+            return (
+              <SubjectContainer key={contentInfo.subject}>
+                <a href={`/${props.pageContext.sourceName}/${contentInfo.subjectSlug}`}>
+                  <h3 class="Subject--hover">{contentInfo.subject}</h3>
+                </a>
+                <ul>
+                  {contentInfo.content.map((content, index) => {
+                    return (
+                      <a href={`/post/${content.slug}`} key={index}>
+                        <li className='PostList'>
+                          <div>
+                            <span class='PostList__title'>{content.title}</span>
+                            <span class='PostList__date'>{content.date}</span>
+                          </div>
+                        </li>
+                      </a>
+                    );
+                  })}
+                </ul>
+              </SubjectContainer>
+            );
+          })}
+        </div>
+      </section>
     </Layout>
   );
 }

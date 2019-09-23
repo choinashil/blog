@@ -1,20 +1,56 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout'
+import Path from '../components/path'
+import '../styles/index.scss'
 
 const Index = () => {
-    return (
-        <div>
-            <Layout>
-                <h1>안녕하세욥</h1>
-                <h2>나시루입니다🐙</h2>
-                <p><Link to='about'>자기소개 화면</Link></p>
-                <p><Link to='blog' category='programming'>Programming</Link></p>
-                <p><Link to='blog' category='activity'>Activity</Link></p>
-            </Layout>
-        </div>
-    );
-}
-
-export default Index
+  const data = useStaticQuery(graphql`
+  query {
+    allMarkdownRemark(filter: {frontmatter: {draft: {eq: false}}}, sort: {fields: frontmatter___date, order: DESC}, limit: 10) {          
+      edges {
+        node {
+          frontmatter {
+            date(fromNow: true, locale: "ko")
+            title
+            subject
+          }
+          fields {
+            slug
+            sourceName
+          }
+        }
+      }
+    }
+  }
+  `)
+  
+  return (
+    <Layout>
+      <section className='Home'>
+        <Path category='home' />
+        <div className='Container'>
+          <h3 className="Subject">Recent</h3>
+          <ul>
+          {data.allMarkdownRemark.edges.map((edge, index) => {
+            return (
+              <a href={`/post/${edge.node.fields.slug}`} key={index}>
+                <li className="PostList">
+                  <div>
+                    <span className="PostList__title">{edge.node.frontmatter.title}</span>
+                    <span className="PostList__date">{edge.node.frontmatter.date}</span>
+                  </div>
+                </li>
+              </a>
+              )
+            })}
+            </ul>
+          </div>
+        </section>
+      </Layout>
+      );
+    }
+    
+    export default Index
+    

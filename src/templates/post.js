@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import Path from '../components/path'
+import '../styles/index.scss';
 
 export const query = graphql`
   query ($slug: String!) {
@@ -9,6 +11,8 @@ export const query = graphql`
         title
         date(formatString: "MMM D, Y")
         subject
+        description
+        tags
       }
       html
       timeToRead
@@ -17,22 +21,29 @@ export const query = graphql`
 `
 
 const Post = props => {
-  const subjectSlug = props.data.markdownRemark.frontmatter.subject.toLowerCase().replace(/ /g, '-');
+  const { frontmatter, html, timeToRead } = props.data.markdownRemark;
+  const { subject, title, description, date } = frontmatter;
 
   return (
     <Layout>
-      <div>
-        <a href={`/${props.pageContext.sourceName}`}>
-         <p>{props.pageContext.sourceName}</p>
-        </a>
-        <a href={`/${props.pageContext.sourceName}/${subjectSlug}`}>
-          <p>{props.data.markdownRemark.frontmatter.subject}</p>
-        </a>
-      </div>
-      <h1>{props.data.markdownRemark.frontmatter.title}</h1>
-      <p>{props.data.markdownRemark.frontmatter.date}</p>
-      <p>{props.data.markdownRemark.timeToRead} min read</p>
-      <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></div>
+      <section className='Post'>
+        <Path 
+          category={props.pageContext.sourceName} 
+          subject={subject}
+        />
+
+        <div className='Container'>
+          <div className='Post__info'>
+            <h1 className='Post__info__title'>{title}</h1>
+            {description ? <p className='Post__info__description'>{description}</p> : ''}
+            <p>
+              <span className='Post__info__date'>{date}</span>
+              <span className='Post__info__timeToRead'>{timeToRead} min read</span>
+            </p>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+        </div>
+      </section>
     </Layout>
   );
 }
