@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "tako-devlog",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A blog for developer",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -13,6 +13,9 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.5",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.13.73",
     "gatsby-plugin-netlify-cms": "^4.1.13",
@@ -36,9 +39,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/choinashil/tako-devlog"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/choinashil/tako-devlog/issues"
   }
 }
