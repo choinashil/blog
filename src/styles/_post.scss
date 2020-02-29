@@ -76,38 +76,38 @@
       
     }
 
-    code {
-      padding: 2px 8px;
-      background-color: $main-green;
-      border-radius: 10px;
-      font-family: 'NanumSquare', sans-serif;
-    }
+    // code {
+    //   padding: 2px 8px;
+    //   background-color: $main-green;
+    //   border-radius: 10px;
+    //   font-family: 'NanumSquare', sans-serif;
+    // }
 
-    pre {
-      position: relative;
-      margin-top: 8px;
-      margin-bottom: 24px;
-      padding: 20px 30px;
-      background-color: #000;
-      border-radius: 35px;
-      color: #fff;
+    // pre {
+    //   position: relative;
+    //   margin-top: 8px;
+    //   margin-bottom: 24px;
+    //   padding: 20px 30px;
+    //   background-color: #000;
+    //   border-radius: 35px;
+    //   color: #fff;
 
-      code {
-        padding: 0;
-        background-color: transparent;
-      }
+    //   code {
+    //     padding: 0;
+    //     background-color: transparent;
+    //   }
 
-      .language-javascript {
-        &:before {
-          position: absolute;
-          top: 8px;
-          right: 15px;
-          font-weight: 700;
-          color: $main-yellow;
-          content: 'javascript';
-        }
-      }
-    }
+    //   .language-javascript {
+    //     &:before {
+    //       position: absolute;
+    //       top: 8px;
+    //       right: 15px;
+    //       font-weight: 700;
+    //       color: $main-yellow;
+    //       content: 'javascript';
+    //     }
+    //   }
+    // }
 
     blockquote {
       padding: 12px 0 12px 20px;;
