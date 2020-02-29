@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/index.scss'
 
 const Path = ({ category, subject }) => {
-
   let subjectSlug;
 
   if (subject) {
@@ -10,7 +9,7 @@ const Path = ({ category, subject }) => {
   }
 
   return (
-    <div class='Path'>
+    <div className='path'>
       <a href={category === 'home' ? '/' : `/${category}`}>
         <h2>{category}</h2>
       </a>

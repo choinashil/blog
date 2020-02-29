@@ -13,11 +13,11 @@ const SubjectContainer = styled.div`
 export const query = graphql`
   query ($sourceName: String!) {
     allMarkdownRemark(
-      filter: {fields: {sourceName: {eq: $sourceName}}, 
+      filter: {fields: {sourceName: {eq: $sourceName}},
       frontmatter: {
-        draft: {eq: false}}}, 
+        draft: {eq: false}}},
         sort: {fields: frontmatter___date, order: DESC}
-    ) {            
+    ) {
       edges {
         node {
           frontmatter {
@@ -38,50 +38,49 @@ const Category = props => {
   const contentList = [];
   const order = {};
   let index = 0;
-  
+
   props.data.allMarkdownRemark.edges.forEach(edge => {
     const { subject, title, date } = edge.node.frontmatter;
     const { slug } = edge.node.fields;
-    
-    if(!order[subject]) {
+
+    if (!order[subject]) {
       order[subject] = { index };
       const subjectSlug = edge.node.frontmatter.subject.toLowerCase().replace(/ /g, '-');
       contentList.push({
         subject,
         subjectSlug,
-        content: [] 
+        content: []
       });
       index++;
     }
     const { content } = contentList[order[subject].index];
-    if(content.length < 3) {
-      content.push({ title, date, slug }); 
+    if (content.length < 3) {
+      content.push({ title, date, slug });
     }
   });
 
   return (
     <Layout>
-      <section class='Category'>
-        <Path category={props.pageContext.sourceName} />
-        
-        <div class='Container'>
+      <Path category={props.pageContext.sourceName} />
+      <section className='category'>
+        <div className='content'>
           {contentList.map(contentInfo => {
             return (
               <SubjectContainer key={contentInfo.subject}>
                 <a href={`/${props.pageContext.sourceName}/${contentInfo.subjectSlug}`}>
-                  <h3 class="Subject--hover">{contentInfo.subject}</h3>
+                  <h3 className='subject--hover'>{contentInfo.subject}</h3>
                 </a>
-                <ul>
+                <ul className='postList__area'>
                   {contentInfo.content.map((content, index) => {
                     return (
-                      <a href={`/post/${content.slug}`} key={index}>
-                        <li className='PostList'>
-                          <div>
-                            <span class='PostList__title'>{content.title}</span>
-                            <span class='PostList__date'>{content.date}</span>
-                          </div>
-                        </li>
-                      </a>
+                      <li className='postList__item' key={index}>
+                        <a href={`/post/${content.slug}`}>
+                        <p className='postList__area-title'>
+                          <span className='postList__title'>{content.title}</span>
+                          <span className='postList__date'>{content.date}</span>
+                        </p>
+                        </a>
+                      </li>
                     );
                   })}
                 </ul>

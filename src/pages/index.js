@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout'
 import Path from '../components/path'
@@ -25,32 +25,31 @@ const Index = () => {
     }
   }
   `)
-  
+
   return (
     <Layout>
-      <section className='Home'>
-        <Path category='home' />
-        <div className='Container'>
-          <h3 className="Subject">Recent</h3>
-          <ul>
+      <Path category='home' />
+      <section className='home'>
+        <div className='content'>
+          <h3 className='subject'>Recent</h3>
+          <ul className='postList__area'>
           {data.allMarkdownRemark.edges.map((edge, index) => {
             return (
-              <a href={`/post/${edge.node.fields.slug}`} key={index}>
-                <li className="PostList">
-                  <div>
-                    <span className="PostList__title">{edge.node.frontmatter.title}</span>
-                    <span className="PostList__date">{edge.node.frontmatter.date}</span>
-                  </div>
-                </li>
-              </a>
-              )
+              <li className='postList__item' key={index}>
+                <a href={`/post/${edge.node.fields.slug}`} className='link'>
+                <p className='postList__area-title'>
+                  <span className='postList__title'>{edge.node.frontmatter.title}</span>
+                  <span className='postList__date'>{edge.node.frontmatter.date}</span>
+                </p>
+                </a>
+              </li>
+            );
             })}
-            </ul>
-          </div>
-        </section>
-      </Layout>
-      );
-    }
-    
-    export default Index
-    
+          </ul>
+        </div>
+      </section>
+    </Layout>
+  );
+}
+
+export default Index

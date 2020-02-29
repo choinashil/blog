@@ -6,9 +6,9 @@ import '../styles/index.scss'
 const Note = () => {
   return (
     <Layout>
-      <section className='Note'>
+      <section className='note'>
         <Path category='note' />
-        <div className='Container'>일기장</div>
+        <div className='content'>일기장</div>
       </section>
     </Layout>
   );

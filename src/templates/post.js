@@ -26,22 +26,21 @@ const Post = props => {
 
   return (
     <Layout>
-      <section className='Post'>
+      <section className='post'>
         <Path 
           category={props.pageContext.sourceName} 
           subject={subject}
         />
-
-        <div className='Container'>
-          <div className='Post__info'>
-            <h1 className='Post__info__title'>{title}</h1>
-            {description ? <p className='Post__info__description'>{description}</p> : ''}
-            <p>
-              <span className='Post__info__date'>{date}</span>
-              <span className='Post__info__timeToRead'>{timeToRead} min read</span>
+        <div className='content'>
+          <div className='post__info'>
+            <h1 className='post__info__title'>{title}</h1>
+            {description ? <h2 className='post__info__description'>{description}</h2> : ''}
+            <p className='post__info__datetime'>
+              <span className='post__info__date'>{date}</span>
+              <span className='post__info__timeToRead'>{timeToRead} min read</span>
             </p>
           </div>
-          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+          <div dangerouslySetInnerHTML={{ __html: html }} className='post__content'></div>
         </div>
       </section>
     </Layout>

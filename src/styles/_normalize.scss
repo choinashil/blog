@@ -1,29 +1,114 @@
 $bgc: rgb(250, 213, 210);
 
 html {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
-body {
-    margin: 0;
-    padding: 0;
+body, header, footer, section, nav, aside, 
+h1, h2, h3, h4, h5, h6, p, ul, ol, li , button,
+pre, blockquote {
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
-    color: #000;
+  text-decoration: none;
+  color: #000;
 }
 
 // h1, h2, h3, h4, h5, h6 {
 //     margin: 0;
 // }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+button {
+  border: 0;
+  outline: 0;
+  background: none;
+  cursor: pointer;
 }
 
-li {
-    margin: 0;
+ul {
+  list-style: none;
+  // margin: 0;
+  // padding: 0;
 }
+
+// li {
+//     margin: 0;
+// }
+
+
+
+// @charset "utf-8";
+// html {
+//   font-size: 10px;
+//   line-height: 10px;
+// }
+// body, article, aside, section, header, footer, p, menu, nav,
+// h1, h2, h3, h4, h5, h6, hgroup,
+// dl, dt, dd, ul, ol, li,
+// form, fieldset, legend, input, textarea, button,
+// audio, video, canvas,
+// table, th, td,
+// details, figcaption, figure {
+//   margin: 0;
+//   padding: 0;
+// }
+// body, button, code, input, select, table, textarea {
+//   font-family: -apple-system, BlinkMacSystemFont, helvetica, Apple SD Gothic Neo, sans-serif;
+//   /* font-size: 1.6rem; */
+//   /* line-height: 2rem; */
+// }
+// body {
+//   background-color: #e9ecef;
+//   color: #000;
+//   -webkit-text-size-adjust: none;
+// }
+// img, fieldset {
+//   border: 0;
+// }
+// img, svg {
+//   display: inline-block;
+//   vertical-align: top;
+// }
+// ol, ul {
+//   list-style: none;
+// }
+// i, em, address, cite, dfn {
+//   font-style: normal;
+// }
+// a {
+//   color: inherit;
+//   text-decoration: none;
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+// }
+// table {
+//   border-collapse: collapse;
+// }
+// caption {
+//   overflow: hidden;
+//   position: static;
+//   width: 0;
+//   height: 0;
+//   margin: -1px;
+//   padding: 0 !important;
+//   clip: rect(0 0 0 0);
+//   font-size: 1px;
+//   line-height: 0;
+//   color: transparent;
+// }
+// input, select, button {
+//   -webkit-appearance: none;
+//   outline: none;
+//   border-radius: 0;
+// }
+// button {
+//   border: 0;
+//   background: none;
+// }
+// hr {
+//   display: none !important;
+// }
+// em {
+//   font-weight: 900;
+// }

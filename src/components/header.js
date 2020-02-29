@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import Nav from './nav'
 import '../styles/index.scss'
 
 const Header = () => {
@@ -13,42 +14,31 @@ const Header = () => {
     }
   }
   `)
-  
+
+  const [isNavHidden, toggleNav] = useState(true);
+
   return (
-    <header>
-      <div class="Header">
-        <div class="Header__logo">
-          <img src="/img/tako.png" />
-        </div>
-        <div class="Header__title">
-          <Link to='/'>
-            <h1>{data.site.siteMetadata.title}</h1>
-          </Link>
-        </div>
-        <p class="Header__author">by {data.site.siteMetadata.author}</p>
+    <header className='header'>
+      
+      <div className='header__area-logo'>
+        <Link to='/' className='link'>
+          <button className='header__logo'>
+            <img src='/img/tako.png' alt='로고 이미지' className='img' />
+          </button>
+          <div className='header__area-title'>
+            <h1 className='header__title'>{data.site.siteMetadata.title}</h1>
+          </div>
+        </Link>
+        <p className='header__author'>by {data.site.siteMetadata.author}</p>
       </div>
 
-      <nav>
-        <ul>
-          <div>
-            <li>
-              <Link to='/me'>me</Link>
-            </li>
-            <li>
-              <Link to='/note'>note</Link>
-            </li>
-            <li>
-              <Link to='/programming'>programming</Link>
-            </li>
-            <li>
-              <Link to='/activity'>activity</Link>
-            </li>
-            <li>
-              <a href='https://www.notion.so/45ac5afb2c184559b3e2ba81854f420c?v=045a5d0f1cd54e709e25aca9f64d7b86' target='_blank' rel='noopener noreferrer'>devlog</a>
-            </li>
-          </div>
-        </ul>
-      </nav>
+      <button className='header__menu' onClick={() => toggleNav(!isNavHidden)}>
+        <img src='/img/tako.png' alt='메뉴' className='img' />
+      </button>
+
+      <div className='nav-desktop'>
+        <Nav />
+      </div>
     </header>
     );
   }

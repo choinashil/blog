@@ -39,19 +39,19 @@ const Subject = props => {
           category={props.pageContext.sourceName}
           subject={props.pageContext.subject}
         />
-        <div className="Container">
-          <ul>
+        <div className='content'>
+          <ul className='postList__area'>
           {
             props.data.allMarkdownRemark.edges.map((edge, index) => {
               return (
-                <a href={`/post/${edge.node.fields.slug}`} key={index}>
-                  <li className="PostList">
-                    <div>
-                      <span className="PostList__title">{edge.node.frontmatter.title}</span>
-                      <span className="PostList__date">{edge.node.frontmatter.date}</span>
-                    </div>
-                  </li>
-                </a>
+                <li className='postList' key={index}>
+                  <a href={`/post/${edge.node.fields.slug}`}>
+                    <p className='postList__area-title'>
+                      <span className='postList__title'>{edge.node.frontmatter.title}</span>
+                      <span className='postList__date'>{edge.node.frontmatter.date}</span>
+                    </p>
+                  </a>
+                </li>
               )
             })
           }
