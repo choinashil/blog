@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 import Path from '../components/path'
 import '../styles/index.scss'
 
@@ -28,6 +29,7 @@ const Index = () => {
 
   return (
     <Layout>
+      <SEO title='문어개발일기' />
       <Path category='home' />
       <section className='home'>
         <div className='content'>

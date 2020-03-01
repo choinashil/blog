@@ -1,9 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: '문어지지말고 개발일기',
-    author: '나시루'
+    title: '문어개발일기',
+    author: '나시루',
+    description: '나시루의 개발 블로그',
+    siteUrl: '',
+    keywords: '프론트엔드, 자바스크립트, 파이썬',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify-cms',
     {
       resolve: 'gatsby-source-filesystem',
