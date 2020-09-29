@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import { css } from "@emotion/core"
 import Nav from './nav'
 import '../styles/index.scss'
 
@@ -18,8 +19,11 @@ const Header = () => {
   const [isNavHidden, toggleNav] = useState(true);
 
   return (
-    <header className='header'>
-      
+    <header css={
+      css` 
+        background-color: blue;
+      `
+    }>
       <div className='header__area-logo'>
         <Link to='/' className='link'>
           <button className='header__logo'>
@@ -40,8 +44,7 @@ const Header = () => {
         <Nav />
       </div>
     </header>
-    );
-  }
-  
-  export default Header
-  
+  );
+}
+
+export default Header

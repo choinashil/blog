@@ -3,7 +3,7 @@ module.exports = {
     title: '문어개발일기',
     author: '나시루',
     description: '나시루의 개발 블로그',
-    siteUrl: '',
+    siteUrl: 'https://www.notion.so/Nashil-9202c3440d0d47d5ac1796d27a10bf55',
     keywords: '프론트엔드, 자바스크립트, 파이썬',
   },
   plugins: [
@@ -76,5 +76,6 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-emotion',
   ]
 }
