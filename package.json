@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "env-cmd": "^10.0.1",
+    "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.18.2"
   },
   "repository": {
