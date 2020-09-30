@@ -1,25 +1,24 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Path from '../components/path'
-import '../styles/index.scss'
+import { css } from '@emotion/core'
+import Layout from 'components/layout'
+import SEO from 'components/seo'
+import { color } from 'styles/variables';
 
 const Index = () => {
   const data = useStaticQuery(graphql`
   query {
-    allMarkdownRemark(filter: {frontmatter: {draft: {eq: false}}}, sort: {fields: frontmatter___date, order: DESC}, limit: 10) {          
+    allMarkdownRemark(filter: {frontmatter: {draft: {eq: false}}}, sort: {fields: frontmatter___date, order: DESC}) {          
       edges {
         node {
           frontmatter {
-            date(fromNow: true, locale: "ko")
+            date(locale: "ko", formatString: "YYYY.MM.DD")
             title
-            subject
+            tags
+            description
           }
           fields {
             slug
-            sourceName
           }
         }
       }
@@ -30,26 +29,74 @@ const Index = () => {
   return (
     <Layout>
       <SEO title='문어개발일기' />
-      <Path category='home' />
-      <section className='home'>
-        <div className='content'>
-          <h3 className='subject'>Recent</h3>
-          <ul className='postList__area'>
+      <div css={
+        css`
+          margin-top: 20px;
+          padding: 0 16px;
+          width: 100%;
+        `
+      }>
+        <ul>
           {data.allMarkdownRemark.edges.map((edge, index) => {
             return (
-              <li className='postList__item' key={index}>
-                <a href={`/post/${edge.node.fields.slug}`} className='link'>
-                <p className='postList__area-title'>
-                  <span className='postList__title'>{edge.node.frontmatter.title}</span>
-                  <span className='postList__date'>{edge.node.frontmatter.date}</span>
-                </p>
+              <li key={index} css={
+                css`
+                  padding-top: 32px;
+
+                  & + & { 
+                    margin-top: 32px;
+                    border-top: 1px solid #444;
+                  }
+                `
+              }>
+                <a href={`/posts/${edge.node.fields.slug}`} css={
+                  css`
+                    display: block;
+                  `
+                }>
+                  <div css={
+                    css`
+                      display: inline-block;
+                      position: relative;
+                      color: ${color.white};
+                      cursor: pointer;
+                    `
+                  }>
+                    <h3 css={
+                      css`
+                        font-size: 18px;
+                      `
+                    }>{edge.node.frontmatter.title}</h3>
+                    <p css={
+                      css`
+                        font-size: 14px;
+                      `
+                    }>{edge.node.frontmatter.description}</p>
+                    <span css={
+                      css`
+                        font-size: 12px;
+                      `
+                    }>{edge.node.frontmatter.date}</span>
+                    <p>
+                      {edge.node.frontmatter.tags.map((tag, index) => {
+                        return (
+                          <span key={index} css={
+                            css`
+                              & + & {
+                                margin-left: 8px;
+                              }
+                            `
+                          }>#{tag}</span>
+                        );
+                      })}
+                    </p>
+                  </div>
                 </a>
               </li>
             );
-            })}
-          </ul>
-        </div>
-      </section>
+          })}
+        </ul>
+      </div>
     </Layout>
   );
 }

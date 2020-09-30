@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
-  
+
   if (node.internal.type === 'MarkdownRemark') {
     const slug = path.basename(node.fileAbsolutePath, '.md');
 
@@ -14,7 +14,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-module.exports.createPages = async({ graphql, actions }) => {
+module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const categoryTemplate = path.resolve('./src/templates/category.js');
   const subjectTemplate = path.resolve('./src/templates/subject.js');
@@ -76,7 +76,7 @@ module.exports.createPages = async({ graphql, actions }) => {
     const { sourceName, slug } = edge.node.fields;
     createPage({
       component: postTemplate,
-      path: `/post/${slug}`,
+      path: `/posts/${slug}`,
       context: {
         sourceName: sourceName,
         slug: slug

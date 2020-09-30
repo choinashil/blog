@@ -1,18 +1,31 @@
 import React from 'react'
-import Header from './header'
-import Footer from './footer'
-import '../styles/index.scss'
+import { css } from '@emotion/core'
+import Global from 'components/global'
+import Header from 'components/header'
+import Footer from 'components/footer'
 
-const Layout = props => {
+const Layout = ({ children }) => {
   return (
-    <div className='wrap'>
+    <div css={
+      css`
+        display: flex;
+        flex-direction: column;
+        max-width: 1000px;
+        min-height: 100vh;
+        margin: 0 auto;
+      `
+    }>
+      <Global />
       <Header />
-      <div className='container'>
-        <div className='area-content'>
-          {props.children}
-        </div>
-        <Footer />
-      </div>
+      <section css={
+        css`
+          display: flex;
+          flex: 1;
+        `
+      }>
+        {children}
+      </section>
+      <Footer />
     </div>
   );
 }
