@@ -10,9 +10,7 @@ const Layout = ({ children }) => {
       css`
         display: flex;
         flex-direction: column;
-        max-width: 1000px;
         min-height: 100vh;
-        margin: 0 auto;
       `
     }>
       <Global />
@@ -21,6 +19,11 @@ const Layout = ({ children }) => {
         css`
           display: flex;
           flex: 1;
+          width: 100%; 
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 0 16px;
+          box-sizing: border-box;
         `
       }>
         {children}

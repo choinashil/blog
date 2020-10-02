@@ -7,11 +7,12 @@ const GlobalStyle = () => {
     <Global
       styles={css`
         html {
-          font-family: sans-serif;
+          font-family: 'D2Coding', sans-serif;
         }
 
         body {
           background-color: ${color.background};
+          color: ${color.white};
         }
 
         body, header, footer, section, nav, aside, 
@@ -21,9 +22,13 @@ const GlobalStyle = () => {
           padding: 0;
         }
 
+        h1, h2, h3, h4, h5, h6 {
+          font-weight: 400;
+        }
+
         a {
           text-decoration: none;
-          color: #000;
+          color: ${color.white};
         }
 
         button {

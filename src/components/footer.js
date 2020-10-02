@@ -1,23 +1,36 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { css } from '@emotion/core'
+import { color } from 'styles/variables';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
-      site {
+      site { 
         siteMetadata {
-          author
+          title
         }
       }
     }
   `)
-  
+
   return (
-    <footer className='footer'>
-      <p className='footer__content'>Created by {data.site.siteMetadata.author}, © 2019</p>
+    <footer css={
+      css`
+        padding: 20px;
+        background-color: ${color.footer};
+        border-top: 1px solid ${color.border};
+      `
+    }>
+      <p css={
+        css`
+          text-align: center;
+          color: ${color.white};
+          font-size: 14px;
+        `
+      }>Copyright ⓒ 2020 {data.site.siteMetadata.title}. All Rights Reserved.</p>
     </footer>
-    );
-  }
-  
-  export default Footer
-  
+  );
+}
+
+export default Footer

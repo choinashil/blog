@@ -1,9 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-
 import Layout from '../components/layout'
-import Path from '../components/path'
 import '../styles/index.scss'
 
 const SubjectContainer = styled.div`
@@ -61,7 +59,6 @@ const Category = props => {
 
   return (
     <Layout>
-      <Path category={props.pageContext.sourceName} />
       <section className='category'>
         <div className='content'>
           {contentList.map(contentInfo => {
@@ -75,10 +72,10 @@ const Category = props => {
                     return (
                       <li className='postList__item' key={index}>
                         <a href={`/post/${content.slug}`}>
-                        <p className='postList__area-title'>
-                          <span className='postList__title'>{content.title}</span>
-                          <span className='postList__date'>{content.date}</span>
-                        </p>
+                          <p className='postList__area-title'>
+                            <span className='postList__title'>{content.title}</span>
+                            <span className='postList__date'>{content.date}</span>
+                          </p>
                         </a>
                       </li>
                     );

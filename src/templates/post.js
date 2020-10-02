@@ -1,48 +1,122 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import Path from '../components/path'
-import '../styles/index.scss';
+import { css } from '@emotion/core'
+import Layout from 'components/layout'
+import Tags from 'components/tags'
+import { color } from 'styles/variables'
+import 'styles/index.scss';
 
 export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
       frontmatter {
         title
-        date(formatString: "MMM D, Y")
+        date(formatString: "YYYY.MM.DD") 
         subject
         description
         tags
       }
       html
-      timeToRead
     }
   }
 `
 
 const Post = props => {
-  const { frontmatter, html, timeToRead } = props.data.markdownRemark;
-  const { subject, title, description, date } = frontmatter;
+  const { frontmatter, html } = props.data.markdownRemark;
+  const { title, date, tags } = frontmatter;
 
   return (
     <Layout>
-      <section className='post'>
-        <Path 
-          category={props.pageContext.sourceName} 
-          subject={subject}
-        />
-        <div className='content'>
-          <div className='post__info'>
-            <h1 className='post__info__title'>{title}</h1>
-            {description ? <h2 className='post__info__description'>{description}</h2> : ''}
-            <p className='post__info__datetime'>
-              <span className='post__info__date'>{date}</span>
-              <span className='post__info__timeToRead'>{timeToRead} min read</span>
-            </p>
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: html }} className='post__content'></div>
+      <div css={
+        css`
+          margin-top: 32px;
+          padding-bottom: 100px;
+          width: 100%;
+        `
+      }>
+        <div>
+          <h2 css={
+            css`
+              font-size: 22px;
+              margin-bottom: 8px;
+            `
+          }>{title}</h2>
+          <p css={
+            css`
+              margin-top: 14px;
+              color: ${color.dark};
+            `
+          }>{date}</p>
+
         </div>
-      </section>
+        <div dangerouslySetInnerHTML={{ __html: html }} css={
+          css`
+            margin-top: 48px;
+            margin-bottom: 40px;
+            font-size: 16px;
+            line-height: 26px;
+
+            h3 {
+              margin-top: 32px;
+              margin-bottom: 8px;
+              font-size: 20px;
+            }
+
+            h4 {
+              margin-top: 8px;
+              margin-bottom: 6px;
+              font-size: 18px;
+            }
+
+            p {
+              & + p {
+                margin-top: 2px;
+              }
+            }
+
+            ul {
+              margin-top: 2px;  
+              padding-left: 8px;
+            }
+
+            li {
+              position: relative;
+              padding-left: 12px;
+
+              &:before {
+                position: absolute;
+                top: 10px;
+                left: 0;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: ${color.white};
+                content: '';
+              }
+
+              & + li {
+                margin-top: 2px;
+              }
+            }
+
+            a {
+              color: ${color.primary};
+
+              &:hover {
+                border-bottom: 1px solid ${color.primary};
+              }
+            }
+
+            p > code, li > code {
+              padding: 1px 6px;
+              background-color: ${color.code}; 
+              color: ${color.white};
+              font-size: 14px;
+            }
+          `
+        } />
+        <Tags tags={tags} fontSize={16} />
+      </div>
     </Layout>
   );
 }

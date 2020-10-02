@@ -1,4 +1,5 @@
 const path = require('path');
+const kebabCase = require('lodash.kebabcase');
 
 module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -16,8 +17,9 @@ module.exports.onCreateNode = ({ node, actions }) => {
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const categoryTemplate = path.resolve('./src/templates/category.js');
-  const subjectTemplate = path.resolve('./src/templates/subject.js');
+  // const categoryTemplate = path.resolve('./src/templates/category.js');
+  // const subjectTemplate = path.resolve('./src/templates/subject.js');
+  const tagTemplate = path.resolve('./src/templates/tag.js');
   const postTemplate = path.resolve('./src/templates/post.js');
   const subjectList = {};
 
@@ -43,34 +45,40 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tags: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
+      }
     }
   `)
 
-  res.data.sourceName.edges.forEach(edge => {
-    createPage({
-      component: categoryTemplate,
-      path: `/${edge.node.sourceInstanceName}`,
-      context: {
-        sourceName: edge.node.sourceInstanceName
-      }
-    })
-  });
+  // res.data.sourceName.edges.forEach(edge => {
+  //   createPage({
+  //     component: categoryTemplate,
+  //     path: `/${edge.node.sourceInstanceName}`,
+  //     context: {
+  //       sourceName: edge.node.sourceInstanceName
+  //     }
+  //   })
+  // });
 
-  res.data.slug.edges.forEach(edge => {
-    const { fields, frontmatter } = edge.node;
-    if (!subjectList[frontmatter.subject]) {
-      const subjectSlug = frontmatter.subject.toLowerCase().replace(/ /g, '-');
-      createPage({
-        component: subjectTemplate,
-        path: `/${fields.sourceName}/${subjectSlug}`,
-        context: {
-          sourceName: fields.sourceName,
-          subject: frontmatter.subject
-        }
-      })
-      subjectList[frontmatter.subject] = frontmatter.subject;
-    }
-  });
+  // res.data.slug.edges.forEach(edge => {
+  //   const { fields, frontmatter } = edge.node;
+  //   if (!subjectList[frontmatter.subject]) {
+  //     const subjectSlug = frontmatter.subject.toLowerCase().replace(/ /g, '-');
+  //     createPage({
+  //       component: subjectTemplate,
+  //       path: `/${fields.sourceName}/${subjectSlug}`,
+  //       context: {
+  //         sourceName: fields.sourceName,
+  //         subject: frontmatter.subject
+  //       }
+  //     })
+  //     subjectList[frontmatter.subject] = frontmatter.subject;
+  //   }
+  // });
 
   res.data.slug.edges.forEach(edge => {
     const { sourceName, slug } = edge.node.fields;
@@ -78,9 +86,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
       component: postTemplate,
       path: `/posts/${slug}`,
       context: {
-        sourceName: sourceName,
-        slug: slug
+        sourceName,
+        slug,
       }
     })
   });
+
+  res.data.tags.group.forEach(tag => {
+    createPage({
+      component: tagTemplate,
+      path: `/tags/${kebabCase(tag.fieldValue)}`,
+      context: {
+        tag: tag.fieldValue,
+      }
+    })
+  })
 }

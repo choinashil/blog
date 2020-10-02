@@ -2,8 +2,9 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { css } from '@emotion/core'
 import Layout from 'components/layout'
+import Tags from 'components/tags'
 import SEO from 'components/seo'
-import { color } from 'styles/variables';
+import { color } from 'styles/variables'
 
 const Index = () => {
   const data = useStaticQuery(graphql`
@@ -31,8 +32,6 @@ const Index = () => {
       <SEO title='문어개발일기' />
       <div css={
         css`
-          margin-top: 20px;
-          padding: 0 16px;
           width: 100%;
         `
       }>
@@ -45,53 +44,43 @@ const Index = () => {
 
                   & + & { 
                     margin-top: 32px;
-                    border-top: 1px solid #444;
+                    border-top: 1px solid ${color.border};
                   }
                 `
               }>
-                <a href={`/posts/${edge.node.fields.slug}`} css={
+                <div css={
                   css`
-                    display: block;
-                  `
-                }>
-                  <div css={
-                    css`
-                      display: inline-block;
-                      position: relative;
-                      color: ${color.white};
                       cursor: pointer;
+                    `
+                }>
+                  <a href={`/posts/${edge.node.fields.slug}`} css={
+                    css`
+                      display: block;
                     `
                   }>
                     <h3 css={
                       css`
-                        font-size: 18px;
+                        font-size: 20px;
+                        color: ${color.primary};
                       `
                     }>{edge.node.frontmatter.title}</h3>
+                    {edge.node.frontmatter.description && <p css={
+                      css`
+                        margin-top: 8px;
+                        font-size: 16px;
+                        color: ${color.white};
+                      `
+                    }>{edge.node.frontmatter.description}</p>}
                     <p css={
                       css`
+                        margin-top: 14px;
                         font-size: 14px;
+                        color: ${color.dark};
                       `
-                    }>{edge.node.frontmatter.description}</p>
-                    <span css={
-                      css`
-                        font-size: 12px;
-                      `
-                    }>{edge.node.frontmatter.date}</span>
-                    <p>
-                      {edge.node.frontmatter.tags.map((tag, index) => {
-                        return (
-                          <span key={index} css={
-                            css`
-                              & + & {
-                                margin-left: 8px;
-                              }
-                            `
-                          }>#{tag}</span>
-                        );
-                      })}
-                    </p>
-                  </div>
-                </a>
+                    }>{edge.node.frontmatter.date}</p>
+                  </a>
+                  <Tags tags={edge.node.frontmatter.tags} />
+                </div>
               </li>
             );
           })}
