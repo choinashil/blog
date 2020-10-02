@@ -25,7 +25,7 @@ const Tags = () => {
 
   return (
     <Layout>
-      <SEO title='문어개발일기' />
+      <SEO title='tags' description='태그 목록입니다 🐙' />
       <div css={
         css`
           width: 100%;

@@ -4,9 +4,10 @@ module.exports = {
   siteMetadata: {
     title: '문어개발일기',
     author: '나시루',
-    description: '나시루의 개발 블로그',
+    description: '오늘도 즐코딩🐙',
+    // TODO: url 변경 필요
     siteUrl: 'https://www.notion.so/Nashil-9202c3440d0d47d5ac1796d27a10bf55',
-    keywords: '프론트엔드, 자바스크립트, 파이썬',
+    keywords: '개발, 웹개발, 개발자, 프론트엔드, 프론트엔드개발자, 자바스크립트, 리액트, 파이썬, developer, javascript, react, python',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

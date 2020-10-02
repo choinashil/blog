@@ -1,44 +1,66 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { useLocation } from '@reach/router'
+import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, meta, image: metaImage, title }) {
-  return (
-    <StaticQuery
-      query={graphql`
-        {
-          site {
-            siteMetadata {
-              title
-              author
-              description
-              siteUrl
-              keywords
-            }
-          }
+function SEO({ title, description, keywords, image, article }) {
+  const { pathname } = useLocation();
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          defaultTitle: title
+          defaultDescription: description
+          siteUrl
+          defaultKeywords: keywords
         }
-      `}
-      render={data => (
-        // const metaDescription = description || data.site.siteMetadata.description;
-        // const image = metaImage && metaImage.src ? `${data.site.siteMetadata.siteUrl}${metaImage.src}` : null;
-        // return (
-          <Helmet 
-            htmlAttributes={{
-              lang: 'ko'
-            }}
-            title={title}
-            // meta={
-            //   [
-            //     {
-            //       name: 'title',
-            //       content: data.site.siteMetadata.title
-            //     }
-            //   ]
-            // }
-          />
-        // );
+      }
+    }
+  `)
+
+  const { defaultTitle, defaultDescription, defaultKeywords, siteUrl } = data.site.siteMetadata;
+  const seo = {
+    title: title ? `${title} | ${defaultTitle}` : defaultTitle,
+    description: description || defaultDescription,
+    keywords: keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords,
+    // image: `${siteUrl}${image || defaultImage}`,
+    url: `${siteUrl}${pathname}`,
+  }
+
+  return (
+    <Helmet title={seo.title}>
+      <meta property="og:title" content={seo.title} />
+      <meta name="twitter:title" content={seo.title} />
+
+      <meta name="description" content={seo.description} />
+      <meta property="og:description" content={seo.description} />
+      <meta name="twitter:description" content={seo.description} />
+
+      <meta name="keywords" content={seo.keywords} />
+
+      {article && <meta property="og:type" content="article" />}
+
+      <meta property="og:locale" content="ko_KR" />
+      <meta name="author" content={defaultTitle} />
+      <meta property="og:site_name" content={defaultTitle} />
+      <meta property="og:article:author" content={defaultTitle} />
+
+      {/* TODO: 이미지 경로 수정 */}
+      <meta property="og:image" content="" />
+      <meta name="twitter:image" content="" />
+      <meta name="twitter:card" content="summary_large_image" />
+
+      <link href={siteUrl} rel="canonical" />
+      <meta property="og:url" content={seo.url} />
+
+      {/* <meta name='image' content={seo.image} /> */}
+      {/* {seo.image && <meta property="og:image" content={seo.image} />}
+      <meta name="twitter:card" content="summary_large_image" />
+      {twitterUsername && (
+        <meta name="twitter:creator" content={twitterUsername} />
       )}
-    />
+      {seo.image && <meta name="twitter:image" content={seo.image} />} */}
+    </Helmet >
   );
 }
 

@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import Layout from 'components/layout'
+import SEO from 'components/seo'
 import Tags from 'components/tags'
 import { color } from 'styles/variables'
-import 'styles/index.scss';
 
 export const query = graphql`
   query ($slug: String!) {
@@ -23,11 +23,18 @@ export const query = graphql`
 
 const Post = props => {
   const { frontmatter, html } = props.data.markdownRemark;
-  const { title, date, tags } = frontmatter;
+  const { title, date, tags, description } = frontmatter;
+  const slicedDescription = description.length > 120 ? `${description.slice(0, 120)}...` : description;
 
   return (
     <Layout>
-      <div css={
+      <SEO
+        title={title}
+        description={`${slicedDescription} 🐙`}
+        keywords={tags.join(', ')}
+        article
+      />
+      <article css={
         css`
           margin-top: 32px;
           padding-bottom: 100px;
@@ -116,7 +123,7 @@ const Post = props => {
           `
         } />
         <Tags tags={tags} fontSize={16} />
-      </div>
+      </article>
     </Layout>
   );
 }

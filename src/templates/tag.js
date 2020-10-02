@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import Layout from 'components/layout'
+import SEO from 'components/seo'
 import { color } from 'styles/variables'
 
 export const query = graphql`
@@ -26,8 +27,16 @@ export const query = graphql`
 `
 
 const Tag = props => {
+  const tag = props.pageContext.tag;
+  const totalCount = props.data.allMarkdownRemark.totalCount;
+
   return (
     <Layout>
+      <SEO
+        title={`#${tag}`}
+        description={`#${tag}에 대한 글 ${totalCount}개 🐙`}
+        keywords={tag}
+      />
       <div css={
         css`
           margin-top: 32px;
@@ -39,7 +48,7 @@ const Tag = props => {
             font-size: 20px;
             color: ${color.primary};
           `
-        }>#{props.pageContext.tag} ({props.data.allMarkdownRemark.totalCount})</h2>
+        }>#{tag} ({totalCount})</h2>
         <ul css={
           css`
             display: flex;       

@@ -1,11 +1,12 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import Layout from 'components/layout'
-import '../styles/index.scss'
+import SEO from 'components/seo'
 
 const about = () => {
   return (
     <Layout>
+      <SEO title='about' />
       <div css={
         css`
           margin-top: 32px;

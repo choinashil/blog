@@ -29,7 +29,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <SEO title='문어개발일기' />
+      <SEO />
       <div css={
         css`
           width: 100%;
