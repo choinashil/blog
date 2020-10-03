@@ -13,6 +13,7 @@ const GlobalStyle = () => {
         body {
           background-color: ${color.background};
           color: ${color.white};
+          text-rendering: optimizelegibility;
         }
 
         body, header, footer, section, nav, aside, 

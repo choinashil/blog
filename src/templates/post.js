@@ -4,6 +4,7 @@ import { css } from '@emotion/core'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import Tags from 'components/tags'
+import Utterances from 'components/utterances'
 import { color } from 'styles/variables'
 
 export const query = graphql`
@@ -37,7 +38,7 @@ const Post = props => {
       <article css={
         css`
           margin-top: 32px;
-          padding-bottom: 100px;
+          padding-bottom: 60px;
           width: 100%;
         `
       }>
@@ -118,11 +119,12 @@ const Post = props => {
               padding: 1px 6px;
               background-color: ${color.code}; 
               color: ${color.white};
-              font-size: 14px;
+              font-size: 14px;            
             }
           `
         } />
         <Tags tags={tags} fontSize={16} />
+        <Utterances />
       </article>
     </Layout>
   );
