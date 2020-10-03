@@ -12,13 +12,13 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify-cms',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: '2018',
-        path: `${__dirname}/content/2018/`
-      }
-    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: '2018',
+    //     path: `${__dirname}/content/2018/`
+    //   }
+    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
