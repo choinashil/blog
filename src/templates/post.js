@@ -128,6 +128,11 @@ const Post = props => {
               margin: 16px 0;
             }
 
+            .grvsc-code {
+              display: flex;
+              flex-direction: column;
+            }
+
             .grvsc-line-diff-del:before {
               background-color: rgba(184, 33, 46, 0.2);  
             }
