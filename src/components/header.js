@@ -48,15 +48,9 @@ const Header = () => {
           align-items: center;
           padding: 16px 0;
         `}>
-        <button css={css`
-          font-size: 0;
-        `}>
-          <img src='/img/tako.png' alt='로고 이미지' css={css`
-            display: inline-block;
-            vertical-align: top;
+        <img src='/img/tako.png' alt='로고 이미지' css={css`
             width: 40px;
           `} />
-        </button>
         <h1 css={css`
           margin-left: 4px;
           font-size: 26px;
@@ -68,15 +62,14 @@ const Header = () => {
             margin-left: 2px;
           }
         `}>
-          <span css={
-            css`
+          <span css={css`
               margin-right: 4px;
+              width: 94px;
             `
           }>문어지지말고</span>
-          <span css={
-            css`
+          <span css={css`
               display: inline-block;
-              margin-left: -64px;
+              margin-left: -40%;
               background-color: ${color.background};
               transition: all .2s;
             `

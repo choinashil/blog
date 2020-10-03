@@ -74,12 +74,23 @@ const Tag = props => {
                     css`
                       display: flex;
                       align-items: flex-end;
+
+                      &:hover span:nth-child(1):before {
+                        position: absolute;
+                        content: '';
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        height: 1px;
+                        background: ${color.white};
+                      }
                     `
                   }>
                     <span css={
                       css`
+                        position: relative;
                         font-size: 16px;
-                        color: ${color.white};   
+                        color: ${color.white};
                       `
                     }>{edge.node.frontmatter.title}</span>
                     <span css={

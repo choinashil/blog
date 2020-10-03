@@ -5,5 +5,5 @@ export const color = {
   white: '#dbdbdb',
   primary: '#60b0fc',
   dark: '#818892',
-  code: '#353941',
+  code: '#343b42',
 }

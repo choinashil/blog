@@ -116,10 +116,44 @@ const Post = props => {
             }
 
             p > code, li > code {
-              padding: 1px 6px;
+              padding: 3px 6px;
               background-color: ${color.code}; 
+              border-radius: 6px;
               color: ${color.white};
               font-size: 14px;            
+            }
+
+            // gatsby-remark-vscode
+            .grvsc-container {
+              margin: 16px 0;
+            }
+
+            .grvsc-line-diff-del:before {
+              background-color: rgba(184, 33, 46, 0.2);  
+            }
+
+            .grvsc-line-diff-add:before {
+              background-color: rgba(30, 168, 62, 0.2);
+            }
+
+            .dark-default-dark {
+              background-color: ${color.footer};
+
+              .grvsc-line-highlighted:before {
+                background-color: rgba(255, 255, 255, 0.05);
+              }
+
+              .mtk4 {
+                color: ${color.primary};
+              }
+
+              .mtk11 {
+                color: #dbdb9f;
+              }
+
+              .mtk12 {
+                color: #b2e2fc;
+              }
             }
           `
         } />

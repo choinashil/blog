@@ -48,41 +48,18 @@ module.exports = {
             }
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: `gatsby-transformer-remark`,
             options: {
-              classPrefix: "language-",
-              inlineCodeMarker: null,
-              // This lets you set up language aliases.  For example,
-              // setting this to '{ sh: "bash" }' will let you use
-              // the language "sh" which will highlight using the
-              // bash highlighter.
-              aliases: {},
-              // This toggles the display of line numbers globally alongside the code.
-              // To use it, add the following line in gatsby-browser.js
-              // right after importing the prism color scheme:
-              //  require("prismjs/plugins/line-numbers/prism-line-numbers.css")
-              // Defaults to false.
-              // If you wish to only show line numbers on certain code blocks,
-              // leave false and use the {numberLines: true} syntax below
-              showLineNumbers: false,
-              // If setting this to true, the parser won't handle and highlight inline
-              // code used in markdown i.e. single backtick code like `this`.
-              noInlineHighlight: false,
-              // Customize the prompt used in shell output
-              // Values below are default
-              // prompt: {
-              //   user: "root",
-              //   host: "localhost",
-              //   global: false,
-              // },
-              // By default the HTML entities <>&'" are escaped.
-              // Add additional HTML escapes by providing a mapping
-              // of HTML entities and their escape value IE: { '}': '&#123;' }
-              // escapeEntities: {},
-            },
+              plugins: [{
+                resolve: `gatsby-remark-vscode`,
+                options: {
+                  theme: 'Dark+ (default dark)'
+                }
+              }]
+            }
           }
         ]
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-root-import',
@@ -95,7 +72,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-sass',
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-emotion',
   ]
 }

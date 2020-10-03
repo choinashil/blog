@@ -36,7 +36,7 @@ const Tags = () => {
             display: flex;
             flex-wrap: wrap;
             margin-top: -8px;
-            margin-left: -8px;
+            margin-left: -12px;
             padding-top: 32px;
           `
         }>
@@ -45,7 +45,7 @@ const Tags = () => {
               <li key={index} css={
                 css`
                   margin-top: 8px;
-                  margin-left: 8px;
+                  margin-left: 12px;
                   font-size: 16px;
                 `
               }>
@@ -59,6 +59,10 @@ const Tags = () => {
                       position: relative;
                       color: ${color.white};
                       cursor: pointer;
+
+                      &:hover {
+                        border-bottom: 1px solid ${color.white};
+                      }
                     `
                   }>#{tag.fieldValue}({tag.totalCount})
                   </span>

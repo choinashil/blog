@@ -21,7 +21,49 @@ draft: false
 
 - 본인 이름으로 된 디렉토리에서 작업한 후 2nd-week1으로 PR
 
-  <br>
+  <!-- <br> -->
+
+```js
+function constant(value) {
+  return () => value // highlight-line
+}
+
+// highlight-next-line
+const alwaysFour = constant(4)
+
+// highlight-start
+const zero = [0, 1, 2, 3, 4, 5].map(alwaysFour).filter(x => x !== 4).length
+// highlight-end
+```
+
+다음과 같이 할 수 있다.
+
+<br>
+
+```ts {diff}
+function add(x, y) {
+-  return x + x;
++  return x + y;
+}
+```
+
+어쩌고 저쩌고 블라블라
+코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고 코드를 이렇게 치면 저렇게 나오고
+
+<br>
+
+```ts {numberLines}
+import * as React from 'react'
+
+// ...
+
+function SomeComponent(props) {
+  // L29
+  return <div />
+}
+```
+
+<br>
 
 - npm package 설치
 
@@ -92,3 +134,7 @@ postman에서 json파일 import해서 테스트하면 됨
 생각보다 훨씬 할게 많아서 큰일났다🤭
 
 포기하지말자~~~
+
+```
+
+```
