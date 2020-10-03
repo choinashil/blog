@@ -11,39 +11,43 @@ draft: false
 
 - 추천도서: [프로그래밍 심리학](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966260980&orderClick=LAG&Kc=)
 - 마크 유튜브 [맠튜브](https://www.youtube.com/user/2woongjae)
+  <br>
 
 ### 오리엔테이션
 
-- Git branch
+#### 1. Git branch
 
-    2nd-week1 에서 본인이름으로 브랜치 딸 것 
+- 2nd-week1 에서 본인이름으로 브랜치 딸 것
 
-    본인 이름으로 된 디렉토리에서 작업한 후 2nd-week1으로 PR
-<br>
+- 본인 이름으로 된 디렉토리에서 작업한 후 2nd-week1으로 PR
+
+  <br>
 
 - npm package 설치
 
-        npm ci
+          npm ci
 
-    `npm ci`는 처음 보는 거라 찾아봤다. npm 5.7.0 버전부터 추가된 내용인데 속도와 안정성 면에서 `npm install` 보다 장점이 있는 듯 하다. 
+      `npm ci`는 처음 보는 거라 찾아봤다. npm 5.7.0 버전부터 추가된 내용인데 속도와 안정성 면에서 `npm install`보다 장점이 있는 듯 하다.
 
-    참고
+      참고
 
-    - [CI(Continous Integration) 환경을 위한 npm ci command](https://trustyoo86.github.io/npm/2018/03/28/npm-ci-command.html)
-    - [npm ci](https://devnote.niceilm.net/npm-ci/)
-    - [What is the difference between “npm install” and “npm ci”?](https://stackoverflow.com/questions/52499617/what-is-the-difference-between-npm-install-and-npm-ci)
-<br>
+      - [CI(Continous Integration) 환경을 위한 npm ci command](https://trustyoo86.github.io/npm/2018/03/28/npm-ci-command.html)
+      - [npm ci](https://devnote.niceilm.net/npm-ci/)
+      - [What is the difference between “npm install” and “npm ci”?](https://stackoverflow.com/questions/52499617/what-is-the-difference-between-npm-install-and-npm-ci)
+
+  <br>
 
 - 실행
 
-        npm run serve
-<br>
+          npm run serve
+
+  <br>
 
 - 서버 로그인
 
-    ID: choinashil@test.com
+  - ID: choinashil@test.com
 
-    비밀번호: 1234
+  - 비밀번호: 1234
 
 ### 과제 설명
 
@@ -63,26 +67,26 @@ draft: false
 
 ### 중요한 점
 
-톤앤매너 → 코드리뷰를 할때 기분이 나쁘면 안됨 
+톤앤매너 → 코드리뷰를 할때 기분이 나쁘면 안됨
 
 함께 좋은 방향을 찾아가는 커뮤니케이션이므로 젠틀하게, 매너를 지키자.
 
 ### 진도 설명
 
-1주차: 타입스크립트 프론트 기초 
+1주차: 타입스크립트 프론트 기초
 
 2주차: 백엔드 API 작업
 
-3-4주차: 프론트, 백엔드 전반적으로 타입 개선 
+3-4주차: 프론트, 백엔드 전반적으로 타입 개선
 
-5-6주차: react, vue, angular로 바꾸면서 타입스크립트 적용 
+5-6주차: react, vue, angular로 바꾸면서 타입스크립트 적용
 
 - 1주차, 2주차 조금씩 밀림...
 - 2주차 백엔드 하기싫은 사람은 건너뛰어도 됨
 
 ### API 확인
 
-postman에서 json파일 import해서 테스트하면 됨 
+postman에서 json파일 import해서 테스트하면 됨
 
 <br>
 생각보다 훨씬 할게 많아서 큰일났다🤭

@@ -15,15 +15,22 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'programming',
-        path: `${__dirname}/content/programming/`
+        name: '2018',
+        path: `${__dirname}/content/2018/`
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'activity',
-        path: `${__dirname}/content/activity/`
+        name: '2019',
+        path: `${__dirname}/content/2019/`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: '2020',
+        path: `${__dirname}/content/2020/`
       }
     },
     'gatsby-remark-source-name',

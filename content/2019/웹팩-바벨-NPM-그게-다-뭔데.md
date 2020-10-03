@@ -1,22 +1,22 @@
 ---
 subject: etc
 title: 웹팩, 바벨, NPM... 그게 다 뭔데?
-description: 익숙하지만 왠지 설명하기 어려웠던 그것들
-tags: ['webpack', 'babel', 'npm', 'parcel']
+description: html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다.
+tags: ['webpack', 'babel', 'npm', 'parcel', 'typescript']
 date: 2019-09-22T04:06:08.119Z
 draft: false
 ---
+
 ## 발단
+
 html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다.
 
-> 음, html \<head\> 부분에 stylesheet를 꽂아주면 되겠구나. 
+> 음, html \<head\> 부분에 stylesheet를 꽂아주면 되겠구나.
 
-그러다가 작업의 편리성을 위해 scss를 쓰고 싶었다. 
+그러다가 작업의 편리성을 위해 scss를 쓰고 싶었다.
 
 > 음? scss는 어떻게 연결하는거더라? 🤔
 
 이렇게 시작된 알면서도 모르는 것들의 개념 정리.
 
 <br>
-
-

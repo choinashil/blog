@@ -6,6 +6,8 @@ const GlobalStyle = () => {
   return (
     <Global
       styles={css`
+        @font-face { font-family: 'UhBeeBEOJJI'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeBEOJJI.woff') format('woff'); font-weight: normal; font-style: normal; } 
+
         html {
           font-family: 'D2Coding', sans-serif;
         }
