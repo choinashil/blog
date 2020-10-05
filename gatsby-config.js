@@ -33,8 +33,16 @@ module.exports = {
         path: `${__dirname}/content/2020/`
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/static/img/`
+      }
+    },
     'gatsby-remark-source-name',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {

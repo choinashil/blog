@@ -38,7 +38,6 @@ const Post = props => {
       <article css={
         css`
           margin-top: 32px;
-          padding-bottom: 60px;
           width: 100%;
         `
       }>

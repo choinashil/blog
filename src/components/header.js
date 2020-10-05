@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { color } from 'styles/variables';
@@ -28,6 +29,17 @@ const Header = () => {
         author
       }
     }
+    file(relativePath: {eq: "tako.png"}) {
+      childImageSharp {
+        fixed(width: 40) {
+          base64
+          width
+          height
+          src
+          srcSet
+        }
+      }
+    }
   }
   `)
 
@@ -48,9 +60,7 @@ const Header = () => {
           align-items: center;
           padding: 16px 0;
         `}>
-        <img src='/img/tako.png' alt='로고 이미지' css={css`
-            width: 40px;
-          `} />
+        <Img fixed={data.file.childImageSharp.fixed} />
         <h1 css={css`
           margin-left: 4px;
           font-size: 26px;
@@ -58,8 +68,10 @@ const Header = () => {
           font-family: 'UhBeeBEOJJI';
           color: ${color.white};
 
-          &:hover span:nth-child(2) {
-            margin-left: 2px;
+          @media (hover:hover), (-ms-high-contrast:none) {
+            &:hover span:nth-of-type(2) {
+              margin-left: 2px;
+            }
           }
         `}>
           <span css={css`

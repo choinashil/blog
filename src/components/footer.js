@@ -17,6 +17,7 @@ const Footer = () => {
   return (
     <footer css={
       css`
+        margin-top: 60px;
         padding: 20px;
         background-color: ${color.footer};
         border-top: 1px solid ${color.border};

@@ -75,7 +75,7 @@ const Tag = props => {
                       display: flex;
                       align-items: flex-end;
 
-                      &:hover span:nth-child(1):before {
+                      &:hover span:nth-of-type(1):before {
                         position: absolute;
                         content: '';
                         left: 0;
