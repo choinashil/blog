@@ -47,6 +47,7 @@ const Post = props => {
             css`
               font-size: 22px;
               margin-bottom: 8px;
+              color: ${color.primary};
             `
           }>{title}</h2>
           <p css={
@@ -60,7 +61,7 @@ const Post = props => {
         <div dangerouslySetInnerHTML={{ __html: html }} css={
           css`
             margin-top: 48px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             font-size: 16px;
             line-height: 26px;
 
@@ -68,6 +69,7 @@ const Post = props => {
               margin-top: 32px;
               margin-bottom: 8px;
               font-size: 20px;
+              font-weight: 700;
             }
 
             h4 {
@@ -115,7 +117,7 @@ const Post = props => {
               }
             }
 
-            p > code, li > code {
+            h3 > code, h4 > code, p > code, li > code {
               padding: 3px 6px;
               background-color: ${color.code}; 
               border-radius: 6px;

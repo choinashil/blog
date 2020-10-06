@@ -5,7 +5,7 @@ description: html과 css파일이 하나씩만 있는 매우! 간단한 구조�
 tags: ['webpack', 'babel', 'npm', 'parcel', 'typescript']
 hiddenTags: []
 date: 2019-09-22T04:06:08.119Z
-draft: false
+draft: true
 ---
 
 ## 발단

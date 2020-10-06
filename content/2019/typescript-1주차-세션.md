@@ -5,7 +5,7 @@ description: 타입스크립트를 배워봅시다
 tags: [programmers, typescript]
 hiddenTags: ['타입스크립트', '프로그래머스']
 date: 2019-09-26T13:41:24.849Z
-draft: false
+draft: true
 ---
 
 ### 스터디 시작 전
