@@ -3,15 +3,12 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: '문어개발일기',
-    author: '나시루',
+    author: '나슈',
     description: '오늘도 즐코딩🐙',
-    // TODO: url 변경 필요
-    siteUrl: 'https://www.notion.so/Nashil-9202c3440d0d47d5ac1796d27a10bf55',
+    siteUrl: 'https://nashu.dev',
     keywords: '개발, 웹개발, 개발자, 프론트엔드, 프론트엔드개발자, 자바스크립트, 리액트, 파이썬, developer, javascript, react, python',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-netlify-cms',
     // {
     //   resolve: 'gatsby-source-filesystem',
     //   options: {
@@ -40,9 +37,6 @@ module.exports = {
         path: `${__dirname}/static/img/`
       }
     },
-    'gatsby-remark-source-name',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -79,6 +73,18 @@ module.exports = {
         templates: path.join(__dirname, 'src/templates'),
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-179715603-1",
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify-cms',
+    'gatsby-remark-source-name',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-sass',
     'gatsby-plugin-emotion',
   ]
