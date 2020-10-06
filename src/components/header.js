@@ -102,11 +102,12 @@ const Header = () => {
             <CategoryLink to='/tags' activeStyle={{ borderBottom: `1px solid ${color.white}` }}>tags</CategoryLink>
           </Category>
           <Category>
-            <a href='https://www.notion.so/45ac5afb2c184559b3e2ba81854f420c?v=045a5d0f1cd54e709e25aca9f64d7b86' target='_blank' rel='noopener noreferrer' css={css`
+            <a id='til' href='https://www.notion.so/45ac5afb2c184559b3e2ba81854f420c?v=045a5d0f1cd54e709e25aca9f64d7b86' target='_blank' rel='noopener noreferrer' css={css`
               &:hover {
                 border-bottom: 1px solid ${color.white};
               }
-            `}>TIL</a>
+            `}
+            >TIL</a>
           </Category>
           <Category>
             <CategoryLink to='/about' activeStyle={{ borderBottom: `1px solid ${color.white}` }}>about</CategoryLink>
