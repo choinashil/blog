@@ -22,7 +22,7 @@ draft: false
 
 <br>
 
-우선, 자바스크립트로 for를 사용해서 loop 돌리는 방식이다. index 초기값과 증가분 지정이 가능하고, index와 value에 편하게 접근이 가능하다. 아래 코드를 기본으로 확장해나가는 방식으로 파이썬 리스트 순회방법을 정리해보자.
+우선, 아래는 자바스크립트로 for를 사용해서 loop 돌리는 방식이다. index 초기값과 증가분 지정이 가능하고, index와 value에 편하게 접근이 가능하다. 아래 코드를 확장해나가는 방식으로 파이썬 리스트 순회방법을 정리해보자.
 
 ```javascript
 let arr = [1, 2, 3, 4, 5]
@@ -33,7 +33,7 @@ for (var i = 0; i < arr.length; i++) {
 
 <br>
 
-### 1. index 사용해서 접근해보기
+### 1. index 사용해서 접근하기
 
 #### - while
 
@@ -51,7 +51,7 @@ while i < len(arr):
 
 #### - range of length
 
-range를 이용해서 i의 리스트를 만들어서 순회하는 방식이다. range로 만들어지는 list는 0부터 `arr의 길이 - 1`이다. 이 예제에서는 [0, 1, 2, 3, 4]가 나온다.
+range를 이용해서 i의 리스트를 만들어서 순회하는 방식이다. range로 만들어지는 list는 0부터 `arr의 길이 - 1`이다. 이 예제에서는 `[0, 1, 2, 3, 4]`가 나온다.
 
 이 방식을 사용하면 index와 값 모두에 접근이 가능하다는 장점이 있다.
 
@@ -79,7 +79,7 @@ for n in arr:
 
 ### 3. 근데 만약 index가 필요하다면?
 
-### - range(len(list))
+#### - range(len(list))
 
 ```python
 rainbow = ['빨', '주', '노', '초', '파', '남', '보']
@@ -91,7 +91,7 @@ for i in range(len(rainbow)):
 
 <br>
 
-### - enumerate
+#### - enumerate
 
 ```python
 rainbow = ['빨', '주', '노', '초', '파', '남', '보']
