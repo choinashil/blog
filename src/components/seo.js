@@ -22,7 +22,7 @@ function SEO({ title, description, keywords, image, article }) {
   const seo = {
     title: title ? `${title} | ${defaultTitle}` : defaultTitle,
     description: description || defaultDescription,
-    keywords: keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords,
+    keywords: keywords || defaultKeywords,
     // image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
   }

@@ -16,6 +16,7 @@ export const query = graphql`
         subject
         description
         tags
+        hiddenTags
       }
       html
     }
@@ -24,7 +25,7 @@ export const query = graphql`
 
 const Post = props => {
   const { frontmatter, html } = props.data.markdownRemark;
-  const { title, date, tags, description } = frontmatter;
+  const { title, date, tags, hiddenTags, description } = frontmatter;
   const slicedDescription = description.length > 120 ? `${description.slice(0, 120)}...` : description;
 
   return (
@@ -32,7 +33,7 @@ const Post = props => {
       <SEO
         title={title}
         description={`${slicedDescription} 🐙`}
-        keywords={tags.join(', ')}
+        keywords={`${tags.join(', ')}, ${hiddenTags.join(', ')}`}
         article
       />
       <article css={
