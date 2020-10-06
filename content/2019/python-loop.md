@@ -149,13 +149,13 @@ for i, fruit in enumerate(fruits):
 # 오렌지: 6000원
 ```
 
-원하는 대로 결과가 나오긴 하지만, enumerate의 index가 조금 어색하게 사용되었다. prices에서 값을 꺼내오기 위한 용도로 fruits의 index를 끼워맞춰 사용한 느낌.. 뭔가 더 동시에 하는 방법이 없을까?
+원하는 대로 결과가 나오긴 하지만, enumerate의 index가 조금 어색하게 사용되었다. prices에서 값을 꺼내오기 위한 용도로 fruits의 index를 끼워맞춘 느낌.. 뭔가 더 깔끔한 방법이 없을까?
 
 <br>
 
 #### - zip
 
-zip을 사용하면 index를 신경쓰지 않아도 된다.
+`zip`을 사용하면 index를 신경쓰지 않아도 된다.
 
 ```python
 for fruit, price in zip(fruits, prices):
@@ -182,7 +182,7 @@ for feature, fruit, price in zip(features, fruits, prices):
 
 <br>
 
-대신 알아둬야 할 점은 비교하는 리스트들의 길이가 다른 경우에 `가장 짧은 리스트의 길이에 맞춰 끝난다`는 점이다. 예시에서 fruits와 prices 리스트의 길이는 5지만 feature 리스트의 길이가 4이다보니, 수박에 대한 설명은 나오지 않고 끝나버렸다.
+대신 알아둬야 할 점은 비교하는 리스트들의 길이가 다른 경우, `가장 짧은 리스트의 길이에 맞춰 순회가 끝난다`는 점이다. 예시에서 fruits와 prices 리스트의 길이는 5지만 feature 리스트의 길이가 4이다보니, 수박에 대한 설명은 나오지 않고 끝나버렸다.
 
 <br>
 
@@ -221,15 +221,15 @@ zip_longest의 결과를 list로 바꿔준 뒤 for ~ in을 사용해서 print한
 
 <br>
 
-이건 처음 본 함수여서 더듬더듬 찾아가며 해봤는데 항상 리스트들의 길이를 맞출 수 없기 때문에 유용하게 쓰일 것 같다. 자세한 내용은 [itertools.zip_longest 문서](https://docs.python.org/3/library/itertools.html#itertools.zip_longest)를 참고하세요.
+이건 처음 본 함수여서 더듬더듬 찾아가며 해봤는데 항상 리스트들의 길이를 맞출 수 없기 때문에 유용하게 쓰일 것 같다. 자세한 내용은 [itertools.zip_longest 문서](https://docs.python.org/3/library/itertools.html#itertools.zip_longest)에 나와있다.
 
 <br>
 
-또 한가지 zip에 대한 설명을 추가하자면, 파이썬2의 zip은 `list`를 return하고, 파이썬3의 zip은 `lazy iterable`을 return한다. (이런 점에서 파이썬3의 zip은 파이썬2에서는 xrange와 더 비슷함)
+또 한가지 zip에 대한 설명을 추가하자면, 파이썬2의 zip은 `list`를 return하고, 파이썬3의 zip은 `lazy iterable`을 return한다. (이런 점에서 파이썬3의 zip은 파이썬2에서는 xrange와 더 비슷하다.)
 
-`lazy iterable`은 게을러서 값들을 미리 가지고 있지 않고, 우리가 필요로 할 때만 계산해서 보여주기 때문에 필요없는 계산을 하지 않아 속도가 빠른 방법이다. 그리고 한번 loop을 돌면서 값들을 보여주고 나면 소진되버린다는 특징이 있다.
+`lazy iterable`은 게을러서 값들을 미리 가지고 있지 않다가, 우리가 필요로 할 때만 계산해서 보여주기 때문에 필요없는 계산을 하지 않아 속도가 빠른 방법이다. 그리고 한번 loop을 돌면서 값들을 보여주고 나면 소진되버린다는 특징이 있다.
 
-### 5. [요약] 그래서 loop을 어떻게 돌라고?
+### 5. [결론] 그래서 loop을 어떻게 돌라고?
 
 #### 1. 하나의 list 돌면서 `값`만 필요한 경우 → `for ~ in` 사용
 

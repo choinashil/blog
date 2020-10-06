@@ -20,7 +20,7 @@ function SEO({ title, description, keywords, image, article }) {
 
   const { defaultTitle, defaultDescription, defaultKeywords, siteUrl } = data.site.siteMetadata;
   const seo = {
-    title: title ? `${title} | ${defaultTitle} 🐙` : `${defaultTitle} 🐙`,
+    title: title ? `${title} 🐙` : `${defaultTitle} 🐙`,
     description: description || defaultDescription,
     keywords: keywords || defaultKeywords,
     // image: `${siteUrl}${image || defaultImage}`,

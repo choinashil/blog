@@ -61,7 +61,19 @@ const Header = () => {
           padding: 16px 0;
         `}>
         <Img fixed={data.file.childImageSharp.fixed} />
-        <h1 css={css`
+        <h1 css={
+          css`
+            overflow: hidden;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+          `
+        }>문어개발일기</h1>
+        <p css={css`
           margin-left: 4px;
           font-size: 26px;
           font-weight: 700;
@@ -86,7 +98,7 @@ const Header = () => {
               transition: all .2s;
             `
           }>개발일기</span>
-        </h1>
+        </p>
       </Link>
 
       <nav>
