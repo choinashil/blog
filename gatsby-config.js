@@ -87,6 +87,14 @@ module.exports = {
         defaultDataLayer: { platform: "gatsby" },
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://nashu.dev',
+        sitemap: 'https://nashu.dev/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify-cms',
     'gatsby-remark-source-name',

@@ -32,7 +32,7 @@ const Post = props => {
     <Layout>
       <SEO
         title={title}
-        description={`${slicedDescription} 🐙`}
+        description={slicedDescription}
         keywords={`${tags.join(', ')}, ${hiddenTags.join(', ')}`}
         article
       />
