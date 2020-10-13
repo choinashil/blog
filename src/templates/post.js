@@ -13,7 +13,6 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY.MM.DD") 
-        subject
         description
         tags
         hiddenTags
@@ -26,7 +25,7 @@ export const query = graphql`
 const Post = props => {
   const { frontmatter, html } = props.data.markdownRemark;
   const { title, date, tags, hiddenTags, description } = frontmatter;
-  const slicedDescription = description.length > 120 ? `${description.slice(0, 120)}...` : description;
+  const slicedDescription = description && description.length > 120 ? `${description.slice(0, 120)}...` : description;
 
   return (
     <Layout>
@@ -56,7 +55,6 @@ const Post = props => {
               color: ${color.dark};
             `
           }>{date}</p>
-
         </div>
         <div dangerouslySetInnerHTML={{ __html: html }} css={
           css`
@@ -164,7 +162,7 @@ const Post = props => {
             }
           `
         } />
-        <Tags tags={tags} fontSize={16} />
+        {!!tags.length && <Tags tags={tags} fontSize={16} />}
         <Utterances />
       </article>
     </Layout>

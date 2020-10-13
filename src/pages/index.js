@@ -37,6 +37,9 @@ const Index = () => {
       }>
         <ul>
           {data.allMarkdownRemark.edges.map((edge, index) => {
+            const { slug } = edge.node.fields;
+            const { title, description, date, tags } = edge.node.frontmatter;
+
             return (
               <li key={index} css={
                 css`
@@ -53,7 +56,7 @@ const Index = () => {
                       cursor: pointer;
                     `
                 }>
-                  <a href={`/posts/${edge.node.fields.slug}`} css={
+                  <a href={`/posts/${slug}`} css={
                     css`
                       display: block;
                     `
@@ -63,23 +66,23 @@ const Index = () => {
                         font-size: 20px;
                         color: ${color.primary};
                       `
-                    }>{edge.node.frontmatter.title}</h3>
-                    {edge.node.frontmatter.description && <p css={
+                    }>{title}</h3>
+                    {description && <p css={
                       css`
                         margin-top: 8px;
                         font-size: 16px;
                         color: ${color.white};
                       `
-                    }>{edge.node.frontmatter.description}</p>}
+                    }>{description}</p>}
                     <p css={
                       css`
                         margin-top: 14px;
                         font-size: 14px;
                         color: ${color.dark};
                       `
-                    }>{edge.node.frontmatter.date}</p>
+                    }>{date}</p>
                   </a>
-                  <Tags tags={edge.node.frontmatter.tags} />
+                  {!!tags.length && <Tags tags={tags} />}
                 </div>
               </li>
             );
