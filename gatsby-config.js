@@ -6,7 +6,7 @@ module.exports = {
     author: '나슈',
     description: '오늘도 즐코딩🐙',
     siteUrl: 'https://nashu.dev',
-    keywords: '개발, 웹개발, 개발자, 프론트엔드, 프론트엔드개발자, 자바스크립트, 리액트, 파이썬, developer, javascript, react, python',
+    keywords: '문어개발, 문어개발일기, 문어지지말고개발, 문어지지말고개발일기, 무너개발, 무너지지말고개발, 무너지지말고개발일기, 개발, 웹개발, 개발자, 프론트엔드, 프론트엔드개발자, 풀스택, 자바스크립트, 리액트, 파이썬',
   },
   plugins: [
     // {
