@@ -1,5 +1,4 @@
 ---
-subject: etc
 title: 웹팩, 바벨, NPM... 그게 다 뭔데?
 description: html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다. html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다. html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다. html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다. html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다. html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다. html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다. html과 css파일이 하나씩만 있는 매우! 간단한 구조로 작업할 일이 생겼다.
 tags: ['webpack', 'babel', 'npm', 'parcel', 'typescript']

@@ -1,5 +1,4 @@
 ---
-subject: Programmers Typescript Study
 title: Typescript 1주차 세션
 description: 타입스크립트를 배워봅시다
 tags: [programmers, typescript]

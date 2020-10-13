@@ -39,9 +39,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
               sourceName
               slug
             }
-            frontmatter {
-              subject
-            }
           }
         }
       }

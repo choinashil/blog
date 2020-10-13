@@ -1,5 +1,4 @@
 ---
-subject: python
 title: 파이썬 리스트 순회 방법 총정리
 description: for in, range, enumerate, zip, itertools 등을 이용해 파이썬의 다양한 리스트 순회방법 마스터하기!
 tags: ['python']

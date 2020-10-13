@@ -1,5 +1,4 @@
 ---
-subject:
 title:
 description:
 tags: []
