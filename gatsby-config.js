@@ -41,23 +41,19 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 750,
-              quality: 80
+              linkImagesToOriginal: false,
+              wrapperStyle: 'margin: 32px auto;',
+              backgroundColor: 'transparent',
             }
           },
           {
-            resolve: `gatsby-transformer-remark`,
+            resolve: 'gatsby-remark-vscode',
             options: {
-              plugins: [{
-                resolve: `gatsby-remark-vscode`,
-                options: {
-                  theme: 'Dark+ (default dark)'
-                }
-              }]
+              theme: 'Dark+ (default dark)'
             }
           }
         ]
