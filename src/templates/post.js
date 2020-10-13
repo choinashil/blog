@@ -26,7 +26,7 @@ export const query = graphql`
 const Post = props => {
   const { frontmatter, html } = props.data.markdownRemark;
   const { title, date, tags, hiddenTags, description } = frontmatter;
-  const slicedDescription = description.length > 120 ? `${description.slice(0, 120)}...` : description;
+  const slicedDescription = description && description.length > 120 ? `${description.slice(0, 120)}...` : description;
 
   return (
     <Layout>
