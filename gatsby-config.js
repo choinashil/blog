@@ -73,17 +73,9 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-gtag',
       options: {
-        trackingId: process.env.GA_TRACKING_ID,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: process.env.GTM_CONTAINER_ID,
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
+        trackingId: process.env.GA_MEASUREMENT_ID,
       },
     },
     {
