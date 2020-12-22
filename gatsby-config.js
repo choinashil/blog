@@ -1,4 +1,7 @@
 const path = require('path');
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -70,15 +73,15 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: "UA-179715603-1",
+        trackingId: process.env.GA_TRACKING_ID,
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: "GTM-W6LXT58",
+        id: process.env.GTM_CONTAINER_ID,
         includeInDevelopment: false,
         defaultDataLayer: { platform: "gatsby" },
       },
